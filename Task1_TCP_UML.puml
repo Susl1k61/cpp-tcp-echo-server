@@ -1,0 +1,14 @@
+@startuml
+actor Client
+participant "TCP Server" as Server
+
+Client -> Server: connect()
+Server --> Client: accept()
+
+Client -> Server: send(message)
+Server -> Server: обработка сообщения
+Server --> Client: send(ответ)
+
+Client -> Server: close()
+Server --> Client: close()
+@enduml
